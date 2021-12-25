@@ -25,6 +25,6 @@ with connection:
         cursor.execute(query, params)
         record = cursor.fetchone()
         record.column_name  # Instead of write record["column_name"]
-
+        record.as_dict(). # get a record as dict
 
 ```
