@@ -15,11 +15,12 @@ CLASS_NAME = 'Record'
 
 
 def _to_dataclass(data: dict, frozen: bool = False):
-    attrs = [(key, type(val)) for key, val in data.items()]
+    # fields = [(key, type(val)) for key, val in data.items()]
+    fields = data.keys()
 
     data_cls = dataclasses.make_dataclass(
         CLASS_NAME,
-        attrs,
+        fields,
         namespace=dict(attrs=_get_attrs, as_dict=_as_dict),
         frozen=frozen
     )
