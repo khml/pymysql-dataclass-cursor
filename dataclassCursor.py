@@ -16,7 +16,7 @@ CLASS_NAME = 'Record'
 
 def _to_dataclass(data: dict, frozen: bool = False):
     # fields = [(key, type(val)) for key, val in data.items()]
-    fields = data.keys()
+    fields = [ key.replace(".", "_") for key in data.keys() ]
 
     data_cls = dataclasses.make_dataclass(
         CLASS_NAME,
